@@ -1,6 +1,33 @@
-" нумерация строк
-set number
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" On-demand loading
+Plugin 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+"Color scheme
+Plugin 'morhetz/gruvbox'
+
+"Plagin 'altercation/vim-colors-solarized'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+":PluginInstall - команда в vim для установки плагинов
+":bdelete - Удаляет кэш после установки плагинов
+
+"Автодополнение для языков программирования, Простое автодополнение комбинация: <Crt-N>
+autocmd filetype c,cpp  set cin
+autocmd filetype python set nocin
+
+set number
 
 
 " все эти четре строки для установки нормальных пробелов и отступов
@@ -17,7 +44,12 @@ set shiftwidth=4
 
 
 " установка цветовой схемы
-colorscheme darkblue
+"1
+"colorscheme darkblue
+
+"2
+colorscheme gruvbox
+set background=dark
 
 
 " включение поддержки синтаксиса языков программирования
@@ -55,11 +87,9 @@ set hlsearch
 " $ git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
 " загрузка страницы справки плагина (рекомендуется а не обязательно!)
 " $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
-nmap <F1> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
 
 
 
 " установка кодировки текста
 set encoding=utf8
-
-
